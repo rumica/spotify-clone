@@ -7,7 +7,7 @@ import Collection from 'views/Collection';
 
 function Content() {
   return (
-    <main>
+    <main className="flex-auto overflow-auto">
       <Navbar />
         <Switch>
           <Route exact path="/">
