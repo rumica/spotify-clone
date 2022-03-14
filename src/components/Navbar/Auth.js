@@ -10,18 +10,39 @@ function Auth() {
                 <Menu.Button className={`flex items-center justify-around h-8 rounded-3xl w-44 ${open ? 'bg-active' : 'bg-black'} hover:bg-active`}>
         <Icon name="user" />
         <span className='text-sm font-semibold'>Rümeysa Var</span>
-        <span className={open === true && 'rotate-180'}>
+        <span className={open && 'rotate-180'}>
             <Icon name="down" />
         </span>
     </Menu.Button>
-    <Menu.Items className={"absolute top-full right-0 w-48 bg-active rounded translate-y-2 p-3"}>
+    <Menu.Items className={"absolute top-full right-0 w-48 bg-active rounded translate-y-2 p-1 rounded"}>
       <Menu.Item>
         {({ active }) => (
           <a
-            className={`${active && 'bg-blue-500'}`}
-            href="/account-settings"
+            className={`h-10 flex justify-between items-center px-2 text-sm font-semibold ${active && 'bg-white bg-opacity-10 rounded'}`}
+            href="#" rounded
           >
-            Account settings
+            Hesap
+            <Icon name="external"/>
+          </a>
+        )}
+      </Menu.Item>
+      <Menu.Item>
+        {({ active }) => (
+          <a
+            className={`h-10 flex items-center px-2 text-sm font-semibold  ${active && 'bg-white bg-opacity-10 rounded'}`}
+            href="#"
+          >
+            Profil
+          </a>
+        )}
+      </Menu.Item>
+      <Menu.Item>
+        {({ active }) => (
+          <a
+            className={`h-10 flex items-center px-2 text-sm font-semibold ${active && 'bg-white bg-opacity-10 rounded'}`}
+            href="#"
+          >
+            Oturumu kapat
           </a>
         )}
       </Menu.Item>
