@@ -17,7 +17,7 @@ function Sidebar() {
         <nav className='mt-6'>
           <ul>
             <li>
-              <a href="" className='px-4 py-3 flex items-center text-sm text-link font-semibold hover:text-white'>
+              <a href="" className='px-4 py-3 flex items-center text-sm text-link font-semibold hover:text-white focus:text-white'>
                 <span className='w-6 h-6 flex items-center justify-center bg-opacity-60 group-hover:bg-opacity-100 mr-4 bg-white rounded-sm text-black'>
                     <Icon name="plus" size={12} />
                 </span>
@@ -25,7 +25,7 @@ function Sidebar() {
               </a>
             </li>
             <li>
-              <a href="" className='px-4 py-3 flex items-center text-sm text-link font-semibold hover:text-white'>
+              <a href="" className='px-4 py-3 flex items-center text-sm text-link font-semibold hover:text-white focus:text-white'>
                 <span className='w-6 h-6 flex items-center justify-center bg-opacity-60 mr-4 bg-gradient-to-br from-indigo-500 text-white to-blue-300 bg-white rounded-sm'>
                     <Icon name="heart" size={12} />
                 </span>
