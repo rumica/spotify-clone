@@ -9,6 +9,7 @@ function Content() {
   return (
     <main className="flex-auto overflow-auto">
       <Navbar />
+        <div className='px-8 pt-4'>
         <Switch>
           <Route exact path="/">
             <Home />
@@ -20,6 +21,7 @@ function Content() {
             <Collection />
           </Route>
         </Switch>
+        </div>
     </main>
   )
 }
