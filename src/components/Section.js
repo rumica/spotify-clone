@@ -19,7 +19,7 @@ function Section({ title, more = false, items}) {
        <div className='grid grid-cols-6 gap-x-6'>
             {items.map(item =>(
                 <NavLink 
-                className={"bg-footer p-4 rounded hover:bg-active group"}
+                className={"bg-footer p-4 rounded hover:bg-active group duration-300 mb-7"}
                 key={item.id} 
                 to="/">
                     <div className='pt-[100%] relative mb-4'>
@@ -33,7 +33,7 @@ function Section({ title, more = false, items}) {
                     <div className='font-semibold overflow-hidden overflow-ellipsis whitespace-nowrap text-base'>
                         {item.title}
                     </div>
-                    <p className='line-clamp-2 text-sm text-link mt-1'>
+                    <p className='line-clamp-2 text-sm text-link mt-1 mb-5'>
                         {item.description}
                     </p>
                 </NavLink>

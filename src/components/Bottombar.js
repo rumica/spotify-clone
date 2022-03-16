@@ -1,8 +1,11 @@
 import React from 'react'
+import Player from 'BottomBar/Player'
 
 function Bottombar() {
   return (
-    <div className='h-24 bg-footer border-white border-opacity-5'>Bottombar</div>
+    <div>
+      <Player />
+    </div>
   )
 }
 

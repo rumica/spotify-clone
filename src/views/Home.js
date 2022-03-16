@@ -49,6 +49,16 @@ function Home() {
           more="/seemore"
           items={items}
         />
+        <Section 
+          title="Çalma listelerin"
+          more="/seemore"
+          items={items}
+        />
+        <Section 
+          title="En çok dinlediğin mix'ler"
+          more="/seemore"
+          items={items}
+        />
     </div>
   )
 }
