@@ -3,7 +3,7 @@ import Player from 'BottomBar/Player'
 
 function Bottombar() {
   return (
-    <div>
+    <div className='h-full bg-footer border-t border-gray-500'>
       <Player />
     </div>
   )

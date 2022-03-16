@@ -27,7 +27,7 @@ function Section({ title, more = false, items}) {
                         <button
                          className='w-10 h-10 rounded-full bg-primary absolute
                          group-hover:flex group-focus:flex bottom-2 right-2 items-center justify-center hidden'>
-                             <Icon name="play" size={24} />
+                             <Icon name="play" size={16} />
                         </button>
                     </div>
                     <div className='font-semibold overflow-hidden overflow-ellipsis whitespace-nowrap text-base'>
