@@ -1,5 +1,5 @@
 import React from 'react'
-import Player from 'BottomBar/Player'
+import Player from 'components/BottomBar/Player'
 
 function Bottombar() {
   return (

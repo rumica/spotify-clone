@@ -1,16 +1,28 @@
-import React, { useState, useMemo } from 'react'
+import React, { useMemo, useEffect } from 'react'
 import { useAudio } from 'react-use';
+import { useDispatch, useSelector } from 'react-redux';
 import { Icon } from 'Icons'
 import CustomRange from 'CustomRange';
 import { secondsToTime } from 'utils';
+import { setControls } from 'stores/player';
 
 
 function Player() {
 
+    const dispatch = useDispatch()
+    const { current } = useSelector(state => state.player)
+
     const [audio, state, controls, ref] = useAudio({
-        src: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3',
-        autoPlay: true,
+        src: current?.src,
       });
+
+    useEffect(() => {
+        controls.play()
+    }, [current])  
+
+    useEffect(() => {
+        dispatch(setControls(controls))
+    }, [])  
     
       const volumeIcon = useMemo(() =>{
         if(state.volume === 0 || state.muted)
@@ -55,9 +67,6 @@ function Player() {
                 <div className='text-[0.688rem] text-white text-opacity-70'>
                     {secondsToTime(state?.time)}
                 </div>
-                <div className='text-[0.688rem] text-white text-opacity-70'>
-                    {secondsToTime(state?.duration)}
-                </div>
                 <CustomRange 
                 step={0.1}
                 min={0}
@@ -65,6 +74,9 @@ function Player() {
                 value={state?.time}
                 onChange={value => controls.seek(value)}
                 />
+                <div className='text-[0.688rem] text-white text-opacity-70'>
+                    {secondsToTime(state?.duration)}
+                </div>
             </div>
         </div>
         <div className='min-w-[11.25rem] w-[30%] flex items-center justify-end'>
