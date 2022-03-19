@@ -4,8 +4,13 @@ import PlayLists from './Sidebar/PlayLists'
 import DowloadApp from './Sidebar/DowloadApp'
 import logo from 'images/logo.svg'
 import { Icon } from 'Icons'
+import { useSelector } from 'react-redux'
+import SidebarCover from './Sidebar/SidebarCover'
 
 function Sidebar() {
+
+  const sidebar = useSelector(state => state.player.sidebar)
+
   return (
     <aside className='w-60 pt-6 flex flex-shrink-0 flex-col bg-black'>
         <a href="#" className='mb-7 px-6'>
@@ -37,6 +42,8 @@ function Sidebar() {
 
         <PlayLists />
         <DowloadApp />
+
+        {sidebar && <SidebarCover />}
 
     </aside>
   )

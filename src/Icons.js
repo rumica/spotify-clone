@@ -132,7 +132,7 @@ const FullScreenIcon = ({ size }) => {
 
 const EmptyHeartIcon = ({ size }) => {
     return (
-        <svg role="img" height={size} width={size} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M1.69 2A4.582 4.582 0 018 2.023 4.583 4.583 0 0111.88.817h.002a4.618 4.618 0 013.782 3.65v.003a4.543 4.543 0 01-1.011 3.84L9.35 14.629a1.765 1.765 0 01-2.093.464 1.762 1.762 0 01-.605-.463L1.348 8.309A4.582 4.582 0 011.689 2zm3.158.252A3.082 3.082 0 002.49 7.337l.005.005L7.8 13.664a.264.264 0 00.311.069.262.262 0 00.09-.069l5.312-6.33a3.043 3.043 0 00.68-2.573 3.118 3.118 0 00-2.551-2.463 3.079 3.079 0 00-2.612.816l-.007.007a1.501 1.501 0 01-2.045 0l-.009-.008a3.082 3.082 0 00-2.121-.861z"/></svg>
+        <svg role="img" height="16" width="16" viewBox="0 0 16 16"><path fill="currentColor" d="M1.69 2A4.582 4.582 0 018 2.023 4.583 4.583 0 0111.88.817h.002a4.618 4.618 0 013.782 3.65v.003a4.543 4.543 0 01-1.011 3.84L9.35 14.629a1.765 1.765 0 01-2.093.464 1.762 1.762 0 01-.605-.463L1.348 8.309A4.582 4.582 0 011.689 2zm3.158.252A3.082 3.082 0 002.49 7.337l.005.005L7.8 13.664a.264.264 0 00.311.069.262.262 0 00.09-.069l5.312-6.33a3.043 3.043 0 00.68-2.573 3.118 3.118 0 00-2.551-2.463 3.079 3.079 0 00-2.612.816l-.007.007a1.501 1.501 0 01-2.045 0l-.009-.008a3.082 3.082 0 00-2.121-.861z"/></svg>
     )
 }
 
@@ -166,6 +166,12 @@ const VolumeFullIcon = ({ size }) => {
     )
 }
 
+const ArrowUpIcon = ({ size }) => {
+    return (
+        <svg height={size}role="img" width={size} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon fill="currentColor" points="15.54,21.151 5.095,12.229 15.54,3.309 16.19,4.069 6.635,12.229 16.19,20.39 "/></svg>
+    )
+}
+
 const Icon = ({ name, size = 24 }) => {
     const icons = {
         home: HomeIcon,
@@ -195,6 +201,7 @@ const Icon = ({ name, size = 24 }) => {
         volumeLow: VolumeLowIcon,
         volumeNormal: VolumeNormalIcon,
         volumeFull: VolumeFullIcon,
+        arrowUp: ArrowUpIcon,
     }
 
     const Component = icons[name]

@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Icon } from 'Icons'
 import CustomRange from 'CustomRange';
 import { secondsToTime } from 'utils';
-import { setControls } from 'stores/player';
+import { setPlaying, setControls, setSidebar } from 'stores/player';
 
 
 function Player() {
 
     const dispatch = useDispatch()
-    const { current } = useSelector(state => state.player)
+    const { current, sidebar } = useSelector(state => state.player)
 
     const [audio, state, controls, ref] = useAudio({
         src: current?.src,
@@ -19,6 +19,10 @@ function Player() {
     useEffect(() => {
         controls.play()
     }, [current])  
+
+    useEffect(() => {
+        dispatch(setPlaying(state.playing))
+    }, [state.playing])
 
     useEffect(() => {
         dispatch(setControls(controls))
@@ -40,9 +44,34 @@ function Player() {
   return ( 
     <div className='flex justify-between items-center h-full px-4'>
         <div className='min-w-[11.25rem] w-[30%]'>
-            sol
+            {current && (
+                <div className='flex items-center'>
+                    <div className='flex items-center mr-3'>
+                     {!sidebar && (
+                            <div className='w-14 h-14 mr-3 flex-shrink-0 relative group'>
+                            <img src={current.image} alt="" />
+                            <button
+                            onClick={() => dispatch(setSidebar(true))}
+                            className='w-6 h-6 bg-black opacity-0 group-hover:opacity-80 hover:!opacity-100 hover:scale-[1.2] flex items-center justify-center rotate-90 rounded-full absolute top-1 right-1'>
+                                <Icon name="arrowUp" size={18}/>
+                            </button>
+                        </div>
+                     )}
+                        <div>
+                            <h3 className='text-sm line-clamp-1'>{current.title}</h3>
+                            <p className='text-s text-link'>{current.artist}</p>
+                        </div>
+                    </div>
+                    <button className='w-8 h-8 flex items-center justify-center text-white text-opacity-70 hover:text-opacity-100'>
+                    <Icon name="emptyHeart"/>
+                </button>
+                <button className='w-8 h-8 flex items-center justify-center text-white text-opacity-70 hover:text-opacity-100'>
+                    <Icon name="pictureInPicture"/>
+                </button>
+                </div>
+            )}
         </div>
-        <div className='max-w-[45.125rem] w-[40%] flex flex-col items-center'>
+        <div className='max-w-[45.125rem] w-[40%] flex flex-col px-4 items-center'>
             <div className='flex items-center gap-x-2'>
                 <button className='w-8 h-8 flex items-center justify-center text-white text-opacity-70 hover:text-opacity-100'>
                     <Icon name="shuffle" />
