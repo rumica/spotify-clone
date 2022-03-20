@@ -2,6 +2,7 @@ import React from 'react';
 import Auth from './Navbar/Auth';
 import { useRouteMatch } from 'react-router-dom';
 import Navigation from './Navbar/Navigation';
+import Search from './Navbar/Search';
 
 function Navbar() {
 
@@ -11,9 +12,7 @@ function Navbar() {
     <nav className='h-[3.75rem] flex items-center justify-between px-8'>
         <Navigation />
         {
-          searchRoute && (
-            <div>Search bölümü</div>
-          )
+          searchRoute && <Search />
         }
         <Auth />
     </nav>
