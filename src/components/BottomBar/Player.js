@@ -1,10 +1,11 @@
-import React, { useMemo, useEffect } from 'react'
-import { useAudio } from 'react-use';
+import React, { useMemo, useEffect, useRef } from 'react'
+import { useAudio, useFullscreen, useToggle } from 'react-use';
 import { useDispatch, useSelector } from 'react-redux';
 import { Icon } from 'Icons'
 import CustomRange from 'CustomRange';
 import { secondsToTime } from 'utils';
 import { setPlaying, setControls, setSidebar } from 'stores/player';
+import FullScreenPlayer from 'components/FullScreenPlayer';
 
 
 function Player() {
@@ -15,6 +16,11 @@ function Player() {
     const [audio, state, controls, ref] = useAudio({
         src: current?.src,
       });
+
+    const fullScreenRef = useRef()
+    const [show, toggle] = useToggle(false)
+    const isFullscreen = useFullscreen(fullScreenRef, show, {onClose: () => toggle(false)});
+
 
     useEffect(() => {
         controls.play()
@@ -136,9 +142,18 @@ function Player() {
                     }}
                     />
                 </div>
-                <button className='w-8 h-8 flex items-center justify-center text-white text-opacity-70 hover:text-opacity-100'>
-                    <Icon name={"fullScreen"} />
+                <button className='w-8 h-8 flex items-center justify-center text-white text-opacity-70 hover:text-opacity-100' onClick={() => toggle()}>
+                    <Icon name="fullScreen" />
                 </button>
+        </div>
+        <div ref={fullScreenRef}>
+            {isFullscreen && (
+                <FullScreenPlayer
+                state={state} 
+                toggle={toggle} 
+                controls={controls}
+                />
+            )}
         </div>
     </div>
   )
