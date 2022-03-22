@@ -6,4 +6,8 @@
     html, body {
         height: 100px;
     }
+
+    .scrollable {
+        scroll-behavior: smooth;
+    }
 }

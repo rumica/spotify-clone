@@ -16,3 +16,6 @@
     @apply flex
   }
 }
+.scrollable {
+  scroll-behavior: smooth;
+}
