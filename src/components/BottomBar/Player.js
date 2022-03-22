@@ -152,6 +152,7 @@ function Player() {
                 state={state} 
                 toggle={toggle} 
                 controls={controls}
+                volumeIcon={volumeIcon}
                 />
             )}
         </div>
