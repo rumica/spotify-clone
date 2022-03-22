@@ -11,15 +11,16 @@ function FullScreenPlayer({ state, controls, toggle, volumeIcon }) {
 
   return (
     <div className='h-full relative'>
-        <div className='flex items-center justify-evenly w-full h-full'>
-           <img src={current.image} alt="" width="400px"/>
-           <h6 className='font-semibold'>{current.title}</h6>
-       </div> 
        <div className='absolute inset-0 object-cover bg-center bg-cover blur-md opacity-30' style={{backgroundImage: `url(${current.image})`}}></div>
-       <div className='w-full absolute bottom-4 flex flex-col-reverse px-8 items-center'>
-            
-            
-            <div className='w-full flex items-center mb-1.5 gap-x-2'>
+       <div className='absolute bottom-48 flex items-end justify-start gap-x-5 w-full h-full z-10 left-32'>
+           <img src={current.image} alt="" width="400px"/>
+           <div className='flex flex-col gap-y-3'>
+                <h6 className='font-semibold text-5xl'>{current.title}</h6>
+                <p className='font-semibold text-2xl text-link'>{current.description}</p>
+           </div>
+       </div> 
+       <div className='w-full absolute bottom-4 flex flex-col px-8 items-center'>
+         <div className='w-[90%] flex items-center mb-1.5 gap-x-2'>
                 <div className='text-[0.688rem] text-white text-opacity-70'>
                     {secondsToTime(state?.time)}
                 </div>
@@ -34,8 +35,8 @@ function FullScreenPlayer({ state, controls, toggle, volumeIcon }) {
                     {secondsToTime(state?.duration)}
                 </div>
             </div>
-            <div className='flex items-center justify-between w-full'>
-                <div>sol</div>
+            <div className=' w-[90%] flex items-center justify-between w-full'>
+                <div></div>
                 <div className='flex items-center gap-x-5 '>
                     <button className='w-8 h-8 flex items-center justify-center text-white text-opacity-70 hover:text-opacity-100'>
                         <Icon name="shuffle" size={24}/>
